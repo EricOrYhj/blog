@@ -1,57 +1,35 @@
-<footer>
-  <div class="container">
-    <div class="row biography">
-      <div class="col-sm-4">
-        <h2>who am i</h2>
-        <p>{{ site.biography }}</p>
-      </div>
-      <div class="col-sm-4">
-        <h2>what is this</h2>
-        <p>{{ site.description }}</p>
-      </div>
-      <div class="col-sm-4">
-        <h2>where am i</h2>
-          {% if site.email %}
-          <div>
-            <a href="mailto:{{ site.email }}">
-              <span class="username">{{ site.email }}</span>
-            </a>
-          </div>
-          {% endif %}
-          {% if site.github_username %}
-          <div>
-            <a href="https://github.com/{{ site.github_username }}">
-              <span class="username">github//{{ site.github_username }}</span>
-            </a>
-          </div>
-          {% endif %}
-          {% if site.twitter_username %}
-          <div>
-            <a href="https://twitter.com/{{ site.twitter_username }}">
-              <span class="username">twitter//{{ site.twitter_username }}</span>
-            </a>
-          </div>
-          {% endif %}
-          {% if site.linkedin_username %}
-          <div>
-            <a href="https://id.linkedin.com/in/{{ site.linkedin_username }}">
-              <span class="username">linkedin//{{ site.linkedin_username }}</span>
-            </a>
-          </div>
-          {% endif %}
-          {% if site.facebook_username %}
-          <div>
-            <a href="https://www.facebook.com/{{ site.facebook_username }}">
-              <span class="username">facebook//{{ site.facebook_username }}</span>
-            </a>
-          </div>
-          {% endif %}
-      </div>
-    </div>
-    {% if site.colophon %}
-    <div class="row copyright">
-      <center>{{ site.colophon }}</center>
-    </div>
+<!-- Documents about icons are here: http://fontawesome.io/icons/ -->
+<div class="footer">
+  <hr />
+  <div class="footer-link">
+    {% if site.author.facebook %}
+    <a href="https://www.facebook.com/{{ site.author.facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
     {% endif %}
+
+    {% if site.author.twitter %}
+    <a href="https://twitter.com/{{ site.author.twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+    {% endif %}
+
+    {% if site.author.github %}
+    <a href="https://github.com/{{ site.author.github }}"><i class="fa fa-github" aria-hidden="true"></i></a>
+    {% endif %}
+
+    {% if site.author.linkedin %}
+    <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+    {% endif %}
+
+    {% if site.author.medium %}
+    <a href="https://medium.com/@{{ site.author.medium }}"><i class="fa fa-medium" aria-hidden="true"></i></a>
+    {% endif %}
+
+    {% if site.author.tumblr %}
+    <a href="https://{{ site.author.tumblr }}.tumblr.com"><i class="fa fa-tumblr" aria-hidden="true"></i></a>
+    {% endif %}
+
+    {% if site.author.email %}
+    <a href="mailto:{{ site.author.email }}"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    {% endif %}
+
   </div>
-</footer>
+  © {{ site.copyright.year }} {{ site.copyright.name }}. All rights reserved.
+</div>
