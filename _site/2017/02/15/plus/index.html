@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plus</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS Feed for eric" href="/feed.xml" />
+  <!-- Begin Jekyll SEO tag v2.1.0 -->
+<title>Plus - eric</title>
+<meta property="og:title" content="Plus" />
+<meta name="description" content="A short description of the page’s content" />
+<meta property="og:description" content="A short description of the page’s content" />
+<link rel="canonical" href="http://localhost:4000/2017/02/15/plus/" />
+<meta property="og:url" content="http://localhost:4000/2017/02/15/plus/" />
+<meta property="og:site_name" content="eric" />
+<meta property="og:image" content="http://placehold.it/400x200" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-02-15T00:00:00+08:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@gfjaru" />
+<meta name="twitter:creator" content="@eric" />
+<script type="application/ld+json">
+{"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "Plus",
+"image": "http://placehold.it/400x200",
+"datePublished": "2017-02-15T00:00:00+08:00",
+"description": "A short description of the page’s content",
+"url": "http://localhost:4000/2017/02/15/plus/"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+<body>
+  <div class="container">
+    <header class="masthead">
+  <h1 class="masthead-title--small">
+    <a href="/">eric</a>
+  </h1>
+</header>
+<div class="content post">
+  <h1 class="post-title">Plus</h1>
+  <div class="post-date">
+    <time>15 Feb 2017</time>
+  </div>
+  <p class="lead">
+spring boot(微服务 流行)
+</p>
+<p class="lead">
+maven(构建 生产)
+</p>
+
+<p>Boot 的目的是帮助开发人员很容易的创建出独立运行的基于 Spring 框架的应用。
+选择最适合的 Spring 子项目和第三方开源库进行整合,只需要非常少的配置就可以快速运行起来</p>
+
+<p>Spring Boot 包含的特性如下：</p>
+
+<ul>
+  <li>创建可以独立运行的 Spring (J2EE规范) 应用。</li>
+  <li>直接嵌入 Tomcat 或 Jetty 服务器，不需要部署 WAR 文件。</li>
+  <li>提供推荐的基础 POM 文件来简化 Apache Maven 配置。</li>
+  <li>尽可能的根据项目依赖来自动配置 Spring 框架。</li>
+  <li>没有代码生成，也没有 XML 配置文件(java 注解的方式)。</li>
+</ul>
+
+<p>对新手无需任何门槛，只要懂Maven会看文档就能亦步亦趋的开始一个新项目。</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">SpringBootApplication</span>
+<span class="kr">public</span> <span class="kr">class</span> <span class="nx">DemoApplication</span> <span class="p">{</span>
+
+	<span class="kr">public</span> <span class="kr">static</span> <span class="k">void</span> <span class="nx">main</span><span class="p">(</span><span class="nb">String</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">SpringApplication</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">DemoApplication</span><span class="p">.</span><span class="kr">class</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p class="lead">
+要进行打包和分发的工程会依赖于像Maven或Gradle这样的构建系统。为了简化依赖图，Boot的功能是模块化的，通过导入Boot所谓的“starter”模块，
+可以将许多的依赖添加到工程之中。为了更容易地管理依赖版本和使用默认配置，框架提供了一个parent POM，工程可以继承它。
+Spring Boot工程的样例POM文件定义
+</p>
+<h3 id="pom程序清单">POM程序清单</h3>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="p">?</span><span class="nx">xml</span> <span class="nx">version</span><span class="o">=</span><span class="s2">"1.0"</span> <span class="nx">encoding</span><span class="o">=</span><span class="s2">"UTF-8"</span><span class="p">?</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">project</span> <span class="nx">xmlns</span><span class="o">=</span><span class="s2">"http://maven.apache.org/POM/4.0.0"</span> <span class="nx">xmlns</span><span class="p">:</span><span class="nx">xsi</span><span class="o">=</span><span class="s2">"http://www.w3.org/2001/XMLSchema-instance"</span>
+	<span class="nl">xsi</span><span class="p">:</span><span class="nx">schemaLocation</span><span class="o">=</span><span class="s2">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="nx">modelVersion</span><span class="o">&gt;</span><span class="mf">4.0</span><span class="p">.</span><span class="mi">0</span><span class="o">&lt;</span><span class="sr">/modelVersion</span><span class="err">&gt;
+</span>
+	<span class="o">&lt;</span><span class="nx">groupId</span><span class="o">&gt;</span><span class="nx">com</span><span class="p">.</span><span class="nx">example</span><span class="o">&lt;</span><span class="sr">/groupId</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="nx">artifactId</span><span class="o">&gt;</span><span class="nx">demo</span><span class="o">&lt;</span><span class="sr">/artifactId</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="nx">version</span><span class="o">&gt;</span><span class="mf">0.0</span><span class="p">.</span><span class="mi">1</span><span class="o">-</span><span class="nx">SNAPSHOT</span><span class="o">&lt;</span><span class="sr">/version</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="nx">packaging</span><span class="o">&gt;</span><span class="nx">jar</span><span class="o">&lt;</span><span class="sr">/packaging</span><span class="err">&gt;
+</span>
+	<span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span><span class="nx">demo</span><span class="o">&lt;</span><span class="sr">/name</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="nx">description</span><span class="o">&gt;</span><span class="nx">Demo</span> <span class="nx">project</span> <span class="k">for</span> <span class="nx">Spring</span> <span class="nx">Boot</span><span class="o">&lt;</span><span class="sr">/description</span><span class="err">&gt;
+</span>
+	<span class="o">&lt;</span><span class="nx">parent</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="nx">groupId</span><span class="o">&gt;</span><span class="nx">org</span><span class="p">.</span><span class="nx">springframework</span><span class="p">.</span><span class="nx">boot</span><span class="o">&lt;</span><span class="sr">/groupId</span><span class="err">&gt;
+</span>		<span class="o">&lt;</span><span class="nx">artifactId</span><span class="o">&gt;</span><span class="nx">spring</span><span class="o">-</span><span class="nx">boot</span><span class="o">-</span><span class="nx">starter</span><span class="o">-</span><span class="nx">parent</span><span class="o">&lt;</span><span class="sr">/artifactId</span><span class="err">&gt;
+</span>		<span class="o">&lt;</span><span class="nx">version</span><span class="o">&gt;</span><span class="mf">1.5</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="nx">RELEASE</span><span class="o">&lt;</span><span class="sr">/version</span><span class="err">&gt;
+</span>		<span class="o">&lt;</span><span class="nx">relativePath</span><span class="o">/&gt;</span> <span class="c">&lt;!--</span> <span class="nx">lookup</span> <span class="nx">parent</span> <span class="nx">from</span> <span class="nx">repository</span> <span class="o">--&gt;</span>
+	<span class="o">&lt;</span><span class="sr">/parent</span><span class="err">&gt;
+</span>
+	<span class="o">&lt;</span><span class="nx">properties</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="nx">project</span><span class="p">.</span><span class="nx">build</span><span class="p">.</span><span class="nx">sourceEncoding</span><span class="o">&gt;</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span><span class="o">&lt;</span><span class="sr">/project.build.sourceEncoding</span><span class="err">&gt;
+</span>		<span class="o">&lt;</span><span class="nx">project</span><span class="p">.</span><span class="nx">reporting</span><span class="p">.</span><span class="nx">outputEncoding</span><span class="o">&gt;</span><span class="nx">UTF</span><span class="o">-</span><span class="mi">8</span><span class="o">&lt;</span><span class="sr">/project.reporting.outputEncoding</span><span class="err">&gt;
+</span>		<span class="o">&lt;</span><span class="nx">java</span><span class="p">.</span><span class="nx">version</span><span class="o">&gt;</span><span class="mf">1.8</span><span class="o">&lt;</span><span class="sr">/java.version</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="sr">/properties</span><span class="err">&gt;
+</span>
+	<span class="o">&lt;</span><span class="nx">dependencies</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="nx">dependency</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="nx">groupId</span><span class="o">&gt;</span><span class="nx">org</span><span class="p">.</span><span class="nx">springframework</span><span class="p">.</span><span class="nx">boot</span><span class="o">&lt;</span><span class="sr">/groupId</span><span class="err">&gt;
+</span>			<span class="o">&lt;</span><span class="nx">artifactId</span><span class="o">&gt;</span><span class="nx">spring</span><span class="o">-</span><span class="nx">boot</span><span class="o">-</span><span class="nx">starter</span><span class="o">&lt;</span><span class="sr">/artifactId</span><span class="err">&gt;
+</span>		<span class="o">&lt;</span><span class="sr">/dependency</span><span class="err">&gt;
+</span>
+		<span class="o">&lt;</span><span class="nx">dependency</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="nx">groupId</span><span class="o">&gt;</span><span class="nx">org</span><span class="p">.</span><span class="nx">springframework</span><span class="p">.</span><span class="nx">boot</span><span class="o">&lt;</span><span class="sr">/groupId</span><span class="err">&gt;
+</span>			<span class="o">&lt;</span><span class="nx">artifactId</span><span class="o">&gt;</span><span class="nx">spring</span><span class="o">-</span><span class="nx">boot</span><span class="o">-</span><span class="nx">starter</span><span class="o">-</span><span class="nx">test</span><span class="o">&lt;</span><span class="sr">/artifactId</span><span class="err">&gt;
+</span>			<span class="o">&lt;</span><span class="nx">scope</span><span class="o">&gt;</span><span class="nx">test</span><span class="o">&lt;</span><span class="sr">/scope</span><span class="err">&gt;
+</span>		<span class="o">&lt;</span><span class="sr">/dependency</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="sr">/dependencies</span><span class="err">&gt;
+</span>
+	<span class="o">&lt;</span><span class="nx">build</span><span class="o">&gt;</span>
+		<span class="o">&lt;</span><span class="nx">plugins</span><span class="o">&gt;</span>
+			<span class="o">&lt;</span><span class="nx">plugin</span><span class="o">&gt;</span>
+				<span class="o">&lt;</span><span class="nx">groupId</span><span class="o">&gt;</span><span class="nx">org</span><span class="p">.</span><span class="nx">springframework</span><span class="p">.</span><span class="nx">boot</span><span class="o">&lt;</span><span class="sr">/groupId</span><span class="err">&gt;
+</span>				<span class="o">&lt;</span><span class="nx">artifactId</span><span class="o">&gt;</span><span class="nx">spring</span><span class="o">-</span><span class="nx">boot</span><span class="o">-</span><span class="nx">maven</span><span class="o">-</span><span class="nx">plugin</span><span class="o">&lt;</span><span class="sr">/artifactId</span><span class="err">&gt;
+</span>			<span class="o">&lt;</span><span class="sr">/plugin</span><span class="err">&gt;
+</span>		<span class="o">&lt;</span><span class="sr">/plugins</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="sr">/build</span><span class="err">&gt;
+</span>
+
+<span class="o">&lt;</span><span class="sr">/project</span><span class="err">&gt;
+</span></code></pre>
+</div>
+<h3 id="开发spring-boot应用">开发Spring Boot应用</h3>
+
+<p>Boot提供了许多的“starter”模块，它们定义了一组依赖，这些依赖能够添加到构建系统之中，从而解析框架及其父平台所需的特定类库。
+值得强调的一点就是当开发Web应用，尤其是RESTful Web服务的时候，如果包含了spring-boot-starter-web依赖，
+它就会为你提供启动嵌入式Tomcat容器的自动化配置，并且提供对微服务应用有价值的端点信息，如服务器信息、应用指标（metrics）以及环境详情。</p>
+
+<h3 id="程序清单">程序清单</h3>
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">RestController</span>
+<span class="kr">public</span> <span class="kr">class</span> <span class="nx">DemoController</span> <span class="p">{</span>
+
+    <span class="err">@</span><span class="nx">RequestMapping</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+    <span class="kr">public</span> <span class="nb">String</span> <span class="nx">index</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s2">"hello world"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="属性文件">属性文件</h3>
+
+<p>属性文件是最常见的管理配置属性的方式。
+Spring Boot 提供的 SpringApplication 类会搜索并加载 application.properties 文件来获取配置属性值。
+SpringApplication 类会在下面位置搜索该文件。
+上面的顺序也表示了该位置上包含的属性文件的优先级。优先级按照从高到低的顺序排列。
+可以通过“spring.config.name”配置属性来指定不同的属性文件名称。也可以通过“spring.config.location”来添加额外的属性文件的搜索路径。
+如果应用中包含多个 profile，可以为每个 profile 定义各自的属性文件，按照“application-{profile}”来命名。
+对于配置属性，可以在代码中通过“@Value”来使用</p>
+
+<h3 id="通过value来使用配置属性">通过“@Value”来使用配置属性</h3>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="err">@</span><span class="nx">RestController</span>
+<span class="err">@</span><span class="nx">EnableAutoConfiguration</span>
+<span class="kr">public</span> <span class="kr">class</span> <span class="nx">Application</span> <span class="p">{</span>
+ <span class="err">@</span><span class="nx">Value</span><span class="p">(</span><span class="s2">"${name}"</span><span class="p">)</span>
+ <span class="kr">private</span> <span class="nb">String</span> <span class="nx">name</span><span class="p">;</span>
+ <span class="err">@</span><span class="nx">RequestMapping</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span>
+ <span class="nb">String</span> <span class="nx">home</span><span class="p">()</span> <span class="p">{</span>
+ <span class="k">return</span> <span class="nb">String</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s2">"Hello %s!"</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+ <span class="p">}</span>
+</code></pre>
+</div>
+<h3 id="数据访问">数据访问</h3>
+
+<p>我们可以基于各种目的来构建微服务，但有一点是肯定的，那就是大多数都需要读取和写入数据库的能力。
+Spring Boot使数据库集成变成了一项非常简单的任务
+，因为它具有自动配置Spring Data以访问数据库的能力。
+只需在你的工程中将spring-boot-starter-data-jpa包含进来，
+Boot的自动配置引擎就能探测到你的工程需要数据访问功能，
+并且会在Spring应用上下文中创建必要的Bean，
+使用了Spring Data来支持来实现数据访问。</p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">dependencies</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">dependency</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">groupId</span><span class="o">&gt;</span><span class="nx">org</span><span class="p">.</span><span class="nx">springframework</span><span class="p">.</span><span class="nx">data</span><span class="o">&lt;</span><span class="sr">/groupId</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">artifactId</span><span class="o">&gt;</span><span class="nx">spring</span><span class="o">-</span><span class="nx">data</span><span class="o">-</span><span class="nx">mongodb</span><span class="o">&lt;</span><span class="sr">/artifactId</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">version</span><span class="o">&gt;</span><span class="mf">1.10</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="nx">RELEASE</span><span class="o">&lt;</span><span class="sr">/version</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/dependency</span><span class="err">&gt;
+</span><span class="o">&lt;</span><span class="sr">/dependencies</span><span class="err">&gt;
+</span></code></pre>
+</div>
+
+<h3 id="maven构建spring-boot框架的可执行jar包">Maven构建Spring Boot框架的可执行Jar包</h3>
+
+<p>在spring boot里，很吸引人的一个特性是可以直接把应用打包成为一个jar/war，
+然后这个jar/war是可以直接启动的，不需要另外配置一个Web Server。
+单独的JAR包，然后通过Java -jar <name>.jar --spring.profiles.active=test 命令运行。</name></p>
+
+<p>SpringBootMaven插件为Maven提供SpringBoot支持，它允许你打包可执行jar或war存档，然后就地运行应用。</p>
+
+<p>Maven用户可以继承spring-boot-starter-parent项目来获取合适的默认设置。该父项目提供以下特性：
+1、默认编译级别为Java 1.6
+2、源码编码为UTF-8
+3、一个依赖管理节点，允许你省略普通依赖的 <version>标签，继承自 spring-boot-dependenciesPOM。
+      合适的资源过滤
+4、合适的插件配置（exec插件，surefire，Git commitID，shade）
+5、针对 application.properties和application.yml 的资源过滤
+6、最后一点：由于默认配置文件接收Spring风格的占位符（ ${...} ），Maven  filtering改用@..@ 占位符（你可以使用Maven属性 resource.delimiter来覆盖它）。</version></p>
+
+<div class="language-javascript highlighter-rouge"><pre class="highlight"><code>    <span class="o">&lt;</span><span class="nx">build</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nx">plugins</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="nx">plugin</span><span class="o">&gt;</span>
+                <span class="o">&lt;</span><span class="nx">groupId</span><span class="o">&gt;</span><span class="nx">org</span><span class="p">.</span><span class="nx">springframework</span><span class="p">.</span><span class="nx">boot</span><span class="o">&lt;</span><span class="sr">/groupId</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="nx">artifactId</span><span class="o">&gt;</span><span class="nx">spring</span><span class="o">-</span><span class="nx">boot</span><span class="o">-</span><span class="nx">maven</span><span class="o">-</span><span class="nx">plugin</span><span class="o">&lt;</span><span class="sr">/artifactId</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="nx">configuration</span><span class="o">&gt;</span>
+                    <span class="o">&lt;</span><span class="nx">fork</span><span class="o">&gt;</span><span class="kc">true</span><span class="o">&lt;</span><span class="sr">/fork</span><span class="err">&gt;
+</span>                <span class="o">&lt;</span><span class="sr">/configuration</span><span class="err">&gt;
+</span>            <span class="o">&lt;</span><span class="sr">/plugin</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="sr">/plugins</span><span class="err">&gt;
+</span>    <span class="o">&lt;</span><span class="sr">/build</span><span class="err">&gt;
+</span></code></pre>
+</div>
+<p><a href="http://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference/htmlsingle/#using-boot-importing-configuration">指南Spring Boot Reference Guide</a></p>
+
+
+</div>
+
+  </div>
+</body>
+</html>
