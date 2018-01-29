@@ -6,9 +6,10 @@ author: "eric"
 
 明道在人事模块的开发中引入了微服务框架spring boot.
 
-#spring boot(微服务 流行)
+{% highlight markdown %}
+# spring boot(微服务 流行)
 
-#maven(构建 生产)
+# maven(构建 生产)
 
 Boot 的目的是帮助开发人员很容易的创建出独立运行的基于 Spring 框架的应用。
 选择最适合的 Spring 子项目和第三方开源库进行整合,只需要非常少的配置就可以快速运行起来
@@ -22,6 +23,7 @@ Spring Boot 包含的特性如下：
 * 没有代码生成，也没有 XML 配置文件(java 注解的方式)。
 
 对新手无需任何门槛，只要懂Maven会看文档就能亦步亦趋的开始一个新项目。
+{% endhighlight %}
 
 ``` javascript
 @SpringBootApplication
