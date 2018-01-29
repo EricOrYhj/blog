@@ -1,39 +1,113 @@
-# Changelog
-All notable changes to this project will be documented in this file.
+# Change Log
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+## 1.4.3 (2018-01-13)
 
-## [0.3.0] - 2018-01-19
-### Added
-* Adds Tools and Experience Section [issue   11](https://github.com/jameshamann/jekyll-material-theme/issues/11)
+### Enhancements
 
+- new TOC style
 
-## [0.2.0] - 2018-01-16
-### Added
-* Fixes [issue 9](https://github.com/jameshamann/jekyll-material-theme/issues/9)
-* Adds Portfolio Cards [issue 8](https://github.com/jameshamann/jekyll-material-theme/issues/8)
+- gitalk support
 
+- mermaid support
 
+- `site.paths` & `site.nav_lists` support absolute URL
 
-## [0.1.2] - 2018-01-09
-### Added
-* Fixes [issue 5](https://github.com/jameshamann/jekyll-material-theme/issues/5) regarding baseurl, where assets weren't being loaded correctly. Ensure the <b>url</b>: field within the ```_config.yml``` does not have a trailing "/". Fixed by [jameshamann](https://github.com/jameshamann) and [jamrizzi](https://github.com/jamrizzi). For example:
+## 1.4.2 (2017-12-10)
 
-  * ```url: http://example.com``` :white_check_mark:
+### Enhancements
 
-  * ```url: http://example.com/``` :x:
+- use new liquid syntax `{%-` `-%}` to avoid unnecessary output whitespace.
 
+- add paths.base config.
 
-* Updates year on Copyright Footer to 2018.
+## 1.4.1 (2017-12-05)
 
+### Enhancements
 
-## [0.1.1] - 2018-01-08
-### Added
-* Added Changelog
-* Fixes [issue #3](https://github.com/jameshamann/jekyll-material-theme/issues/3) where assets were not being correctly loaded on Github Pages. Fixed by [jamrizzi](https://github.com/jamrizzi).
-* Fixes contact form issue where the message body wasn't being sent as part of the submission.
+- New color themes(Chocolate, Orange)
 
+### Bug Fixes
 
-## 0.0.1 - 2017-12-07
-### First Release
+- Issues 9: the _posts file can't recorded by git
+
+## 1.4.0 (2017-11-19)
+
+### Enhancements
+
+- Multi-language support
+
+### Bug Fixes
+
+- Table overflow-x smooth on iOS
+
+## 1.3.0 (2017-11-11)
+
+### Enhancements
+
+- Article tag supports special characters
+
+- Excerpts type (HTML | TEXT)
+
+- Titles on the phone become smaller
+
+- Styles change (table, code, blockquote)
+
+## 1.2.2 (2017-11-04)
+
+### Enhancements
+
+- MathJax Support
+
+- Add "Read More" link at the end of article excerpt.
+
+- 404 page
+
+### Bug Fixes
+
+- Fix Email link URL error
+
+- Fix Site Title link URL error
+
+- Fix table responsive style error
+
+## 1.2.1 (2017-10-27)
+
+### Enhancements
+
+- Optimize Article TOC.
+
+### Bug Fixes
+
+- Issues 4: View count display error when the post key include `-`. @yuxianda
+
+- Email url error
+
+## 1.2.0 (2017-10-22)
+
+### Enhancements
+
+- Article excerpt no more than 200 words
+
+- If `leancloud` is not set, 0 view won't display
+
+### Bug Fixes
+
+- Fix article TOC 's display error at proper situation
+
+- Fix footer social buttons not in the center bug
+
+## 1.1.0 (2017-10-19)
+
+### Enhancements
+
+- Color variables
+
+- More color themes (dark, forest, ocean)
+
+## 1.0.0 (2017-10-17)
+
+### Enhancements
+
+- Better article directories
+
+- Dark color theme

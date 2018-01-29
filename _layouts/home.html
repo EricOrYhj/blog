@@ -1,78 +1,122 @@
-{% include head.html %}
-
-  <div id="home" class="section scrollspy">
-  <div id="index-banner" class="parallax-container">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <br><br>
-        <h1 class="header center teal-text text-lighten-2">{{ site.title }}</h1>
-        <div class="row center">
-          <h5 class="header col s12 light">{{ site.description }}</h5>
-        </div>
-        <br><br>
-
-      </div>
+---
+layout: blog-default
+titles:
+  en: Blog
+  zh: 博客
+  zh-Hans: 博客
+  zh-Hant: 博客
+---
+<div class="m-home">
+  <div class="main">
+    <div class="m-post-list">
+      {%- for post in paginator.posts -%}
+        <article>
+          {%- assign __path = post.url -%}
+          {%- include snippets/prepend-baseurl.html -%}
+          {%- assign href = __return -%}
+          <h1><a href="{{ href }}">{{ post.title }}</a></h1>
+          <div class="m-article-content">
+            {%- if site.excerpt_type == 'html' -%}
+              {{ post.excerpt }}
+            {%- else -%}
+              {{ post.excerpt | strip_html | truncate: 350 }}
+            {%- endif -%}
+          </div>
+          {%- assign __path = post.url -%}
+          {%- include snippets/prepend-baseurl.html -%}
+          {%- assign __locale = site.data.locale.READMORE -%}
+          {%- include snippets/locale-to-string.html -%}
+          <a href="{{ href }}">{{ __return }}</a>
+          {%- include components/article-data.html -%}
+        </article>
+      {%- endfor -%}
     </div>
-    <div class="parallax"><img src="{{site.parallax_image_one}}" alt="Unsplashed background img 1"></div>
+    {%- if paginator.total_pages > 1 -%}
+        <nav class="m-pagination">
+          {%- assign __locale = site.data.locale.STATISTICS -%}
+          {%- include snippets/locale-to-string.html -%}
+          {%- assign post_count = site.posts | size -%}
+          {%- assign page_count = paginator.total_pages -%}
+          <p>{{ __return | replace: '[POST_COUNT]', post_count | replace: '[PAGE_COUNT]', page_count }}</p>
+          <ul>
+          {%- if paginator.previous_page -%}
+            {%- assign __path = paginator.previous_page_path -%}
+            {%- include snippets/prepend-baseurl.html -%}
+            {%- assign href = __return -%}
+            <li><a class="round-button" href="{{ href }}">
+              <div class="icon icon--previous">{%- include icon/previous.svg -%}</div></a>
+            </li>
+          {%- else -%}
+            <li><div class="round-button inactive">
+              <div class="icon icon--prrevious">{%- include icon/previous.svg -%}</div></div>
+            </li>
+          {%- endif -%}
+          {%- for page in (1..paginator.total_pages) -%}
+            {%- if page == paginator.page -%}
+              <li>
+                <div class="round-button cur"><span>{{ page }}</span></div>
+              </li>
+            {%- elsif page == 1 -%}
+              {%- if site.paths.base -%}
+                {%- assign __path = site.paths.base -%}
+              {%- else -%}
+                {%- assign __path = '/' -%}
+              {%- endif -%}
+              {%- include snippets/prepend-baseurl.html -%}
+              {%- assign href = __return -%}
+              <li>
+                <a class="round-button" href="{{ href }}"><span>{{ page }}</span></a>
+              </li>
+            {%- else -%}
+              {%- assign __path = site.paginate_path -%}
+              {%- include snippets/prepend-baseurl.html -%}
+              {%- assign href = __return -%}
+              <li>
+                <a class="round-button" href="{{ href | replace: ':num', page }}"><span>{{ page }}</span></a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if paginator.next_page -%}
+            {%- assign __path = paginator.next_page_path -%}
+            {%- include snippets/prepend-baseurl.html -%}
+            {%- assign href = __return -%}
+            <li>
+              <a class="round-button" href="{{ href }}">
+                <div class="icon icon--next">{%- include icon/next.svg -%}</div>
+              </a>
+            </li>
+          {%- else -%}
+              <li><div class="round-button inactive">
+                <div class="icon icon--next">{%- include icon/next.svg -%}</div>
+                </div></li>
+          {%- endif -%}
+          </ul>
+        </nav>
+    {%- endif -%}
   </div>
 </div>
-
-<div id="cookies" style="display:{{site.cookies_banner}}">
-  <p style="text-align:left; padding-left:8px"><a value="hide/show" id="check" class="waves-effect waves-light green lighten-1 btn btn-floating pulse" onclick="Materialize.toast('{{site.cookie_accept_message}}', 2000)" ><i class="material-icons">check</i></a></p>
-  {% include cookies.html %}
-</div>
-
-<div class="container" style="padding:20px;">
-  <div id="portfolio" class="section scrollspy">
-
-  <h3 style="text-align:center;">Portfolio</h3>
-
-{% include portfolio_{{site.portfolio_type}}.html %}
-
-</div>
-
-
-</div>
-
-<div class="container" style="padding:20px;">
-  <div id="skills" class="section scrollspy">
-   <h3 style="text-align:center;">Tools and Experience</h3>
-   {% include skills.html %}
- </div>
-</div>
-
-
-
-
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="{{site.parallax_image_two}}" alt="Unsplashed background img 3"></div>
-  </div>
-
-
-<div class="container" style="padding:20px;">
-  <div id="blog" class="section scrollspy">
-  <h3 style="text-align:center;">Blog</h3>
-  {% include blog-feed.html %}
-</div>
-</div>
-
-<div class="container" style="padding:20px;">
-  <div id="contact" class="section scrollspy">
-  <h3 style="text-align:center;">Contact</h3>
-  {% include contact.html %}
-</div>
-</div>
-
-
-
-
-{% include nav-burger.html %}
-
-{% include footer.html %}
+{%- if site.leancloud.app_id and site.leancloud.app_key and site.leancloud.app_class and jekyll.environment != "development" -%}
+  <script src="//cdn1.lncld.net/static/js/3.4.1/av-min.js"></script>
+  <script>
+    $(function() {
+      AV.init({
+        appId: '{{ site.leancloud.app_id }}',
+        appKey: '{{ site.leancloud.app_key }}'
+      });
+      $(".article-view").each(function() {
+        var curId = this.id;
+        var query = new AV.Query('{{ site.leancloud.app_class }}');
+        query.equalTo('key', curId.substr(9));
+        query.first().then(function(result) {
+          if (result) {
+            $('#' + curId).text(result.attributes.views);
+          }
+        }, function(error) {
+          if (error) {
+            throw error;
+          }
+        });
+      });
+    });
+  </script>
+{%- endif -%}
