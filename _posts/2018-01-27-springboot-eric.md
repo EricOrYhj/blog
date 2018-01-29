@@ -2,7 +2,7 @@
 layout: post
 title:  "Spring Boot"
 author: "eric"
-description:    "Minimal Jekyll theme for storytellers"
+description: "明道在人事模块的开发中引入了微服务框架spring boot."
 ---
 
 明道在人事模块的开发中引入了微服务框架spring boot.
@@ -14,6 +14,7 @@ description:    "Minimal Jekyll theme for storytellers"
 Boot 的目的是帮助开发人员很容易的创建出独立运行的基于 Spring 框架的应用。
 选择最适合的 Spring 子项目和第三方开源库进行整合,只需要非常少的配置就可以快速运行起来
 
+{% highlight markdown %}
 Spring Boot 包含的特性如下：
 
 * 创建可以独立运行的 Spring (J2EE规范) 应用。
@@ -21,6 +22,7 @@ Spring Boot 包含的特性如下：
 * 提供推荐的基础 POM 文件来简化 Apache Maven 配置。
 * 尽可能的根据项目依赖来自动配置 Spring 框架。
 * 没有代码生成，也没有 XML 配置文件(java 注解的方式)。
+{% endhighlight %}
 
 对新手无需任何门槛，只要懂Maven会看文档就能亦步亦趋的开始一个新项目。
 
