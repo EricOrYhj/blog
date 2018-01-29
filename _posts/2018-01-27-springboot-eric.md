@@ -4,8 +4,9 @@ title:  "Spring Boot"
 author: "eric"
 ---
 
-明道在人事套件的开发中引入了微服务框架spring boot
+明道在人事模块的开发中引入了微服务框架spring boot
 
+# Headers
 <p class="lead">
 spring boot(微服务 流行)
 </p>
