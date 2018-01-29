@@ -4,12 +4,8 @@ title:  "Spring Boot"
 author: "eric"
 ---
 
-明道在人事模块的开发中引入了微服务框架spring boot.
-明道在人事模块的开发中引入了微服务框架spring boot.
-明道在人事模块的开发中引入了微服务框架spring boot.
-明道在人事模块的开发中引入了微服务框架spring boot.
+You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
-{% highlight markdown %}
 # spring boot(微服务 流行)
 
 # maven(构建 生产)
@@ -26,7 +22,6 @@ Spring Boot 包含的特性如下：
 * 没有代码生成，也没有 XML 配置文件(java 注解的方式)。
 
 对新手无需任何门槛，只要懂Maven会看文档就能亦步亦趋的开始一个新项目。
-{% endhighlight %}
 
 ``` javascript
 @SpringBootApplication
