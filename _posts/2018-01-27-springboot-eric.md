@@ -1,8 +1,10 @@
 ---
 layout: post
-title:  "Spring Boot在明道中的应用"
+title:  "Spring Boot"
 author: "eric"
 ---
+
+明道在人事套件的开发中引入了微服务框架spring boot
 
 <p class="lead">
 spring boot(微服务 流行)
