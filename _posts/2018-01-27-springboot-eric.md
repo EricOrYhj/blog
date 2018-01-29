@@ -4,7 +4,7 @@ title:  "Spring Boot"
 author: "eric"
 ---
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+明道在人事模块的开发中引入了微服务框架spring boot.
 
 # spring boot(微服务 流行)
 
