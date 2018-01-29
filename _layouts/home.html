@@ -11,7 +11,7 @@ layout: default
         <div class="catalogue-line"></div>
 
         <p>
-          {{ post.description | truncatewords: 5 }}
+          {{ post.description | truncatewords: 10 | strip_html }}
         </p>
 
       </div>
