@@ -2,7 +2,7 @@
 layout: post
 title:  "Spring Boot"
 author: "eric"
-description: "微服务框架spring boot在明道人事模块中的应用(1)."
+description: "微服务框架spring boot在明道人事模块中的应用."
 ---
 
 微服务框架spring boot在明道人事模块中的应用.以下为简介及基本使用姿势
